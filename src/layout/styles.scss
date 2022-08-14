@@ -1,0 +1,11 @@
+@use '../assets/styles/' as *;
+
+.layout {
+    width: 100%;
+    position: relative;
+    &-container {
+        max-width: 1920px;
+        margin: auto;
+        background-color: $primary-color-green;
+    }
+}

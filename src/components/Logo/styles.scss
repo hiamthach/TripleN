@@ -1,0 +1,17 @@
+@use '../../assets/styles/' as *;
+
+.logo {
+    img {
+        width: 242px;
+        height: 75px;
+    }
+}
+
+@media (max-width: 1600px) {
+    .logo {
+        img {
+            width: 160px;
+            height: auto;
+        }
+    }
+}
