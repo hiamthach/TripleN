@@ -37,3 +37,8 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+::selection {
+	color: #fff;
+	background: #bb4a1a;
+  }

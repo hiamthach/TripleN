@@ -1,5 +1,5 @@
 import "./assets/styles/index.scss";
-import "antd/dist/antd.css";
+import "antd/dist/antd.min.css";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
