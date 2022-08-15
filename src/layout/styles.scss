@@ -4,6 +4,8 @@
     width: 100%;
     position: relative;
     background-color: $primary-color-green;
+    overflow: auto;
+
 
     &-header {
         position: fixed;
@@ -19,11 +21,24 @@
     }
 
     &-scroll-top {
-        position: absolute;
+        position: fixed;
         bottom: 60px;
         right: 60px;
         &__none {
             display: none;
+        }
+    }
+}
+
+@media (max-width: 816px) {
+    .layout {
+        &-scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            &__none {
+                display: none;
+            }
         }
     }
 }

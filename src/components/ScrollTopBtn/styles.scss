@@ -20,3 +20,13 @@
         transform: translateY(-4px);
     }
 }
+
+@media (max-width: 816px) {
+    .scroll-top-btn {
+        width: 48px;
+        height: 48px;
+        i {
+            font-size: 22px;
+        }
+    }
+}

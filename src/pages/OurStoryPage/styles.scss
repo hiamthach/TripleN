@@ -1,1 +1,113 @@
 @use '../../assets/styles/' as *;
+
+.our-story-page {
+    
+    &__main {
+        padding: 0 150px;
+    }
+    &__section {
+        display: flex;
+        align-items: center;
+        max-width: 1365px;
+        margin: 200px auto;
+        gap: 120px;
+        .img-rounded {
+            z-index: 1;
+        }
+        img {
+            width: 50%;
+        }
+
+        &--wrap {
+            width: 50%;
+
+            h1 {
+                font-size: 64px;
+                line-height: 84px;
+                color: $primary-color-yellow;
+                font-weight: 900;
+                font-family: $header-font-family;
+                margin-bottom: 0;
+            }
+
+            p {
+                font-size: 24px;
+                line-height: 36px;
+                color: #D1D6C4FF;
+                margin-top: 20px;
+            }
+
+        }
+        &--divider {
+            width: 900px;
+            transform: translateX(-35%);
+            z-index: -1;
+            &__left {
+                width: 1100px;
+                transform: translateX(0);
+            }
+        }
+    }
+}
+
+@media (max-width: 1600px) {
+    .our-story-page {
+        &__section {
+            margin: 120px auto;
+            gap: 80px;
+            &--wrap {
+                h1 {
+                    font-size: 58px;
+                    line-height: 72px;
+                }
+                p{
+                    font-size: 22px;
+                    line-height: 30px;  
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1300px) {
+    .our-story-page {
+        &__section {
+            margin: 120px auto;
+            padding: 0 20px;
+            gap: 60px;
+            &--wrap {
+                h1 {
+                    font-size: 52px;
+                }
+                p{
+                    font-size: 20px;
+                }
+            }
+            &--divider {
+                width: 100%;
+                z-index: -1;
+            }
+        }
+    }
+}
+
+@media (max-width: 816px) {
+    .our-story-page {
+        &__main {
+            padding: 0 30px;
+        }
+        &__section {
+            margin: 60px auto;
+            flex-direction: column;
+            gap: 12px;
+
+            &--wrap {
+                width: 100%;
+            }
+
+            &--divider {
+                transform: translateX(0);
+            }
+        }
+    }
+}

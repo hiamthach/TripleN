@@ -1,0 +1,34 @@
+@use '../../assets/styles/' as *;
+
+.img-rounded {
+    width: 617px;
+    height: 617px;
+    img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50% 50% 0px 0px;
+        object-fit: cover;
+        object-position: center;
+    }
+}
+
+@media (max-width: 1600px) {
+    .img-rounded {
+        width: 520px;
+        height: 520px;
+    }
+}
+
+@media (max-width: 1300px) {
+    .img-rounded {
+        width: 480px;
+        height: 480px;
+    }
+}
+
+@media (max-width: 816px) {
+    .img-rounded {
+        width: 400px;
+        height: 400px;
+    }
+}
