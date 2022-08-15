@@ -1,0 +1,22 @@
+@use '../../assets/styles/' as *;
+
+.scroll-top-btn {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    background-color: $primary-color-green;
+    border: 6px solid #fff;
+    z-index: 100;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+    i {
+        font-size: 28px;
+        color: #fff;
+    }
+    &:hover {
+        transform: translateY(-4px);
+    }
+}

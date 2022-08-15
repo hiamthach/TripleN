@@ -3,9 +3,27 @@
 .layout {
     width: 100%;
     position: relative;
+    background-color: $primary-color-green;
+
+    &-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 100;
+        width: 100%;
+    }
     &-container {
         max-width: 1920px;
         margin: auto;
-        background-color: $primary-color-green;
+        position: relative;
+    }
+
+    &-scroll-top {
+        position: absolute;
+        bottom: 60px;
+        right: 60px;
+        &__none {
+            display: none;
+        }
     }
 }

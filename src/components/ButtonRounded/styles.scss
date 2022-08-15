@@ -1,0 +1,28 @@
+@use '../../assets/styles/' as *;
+
+.button-rounded {
+
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $primary-color-red;
+    border: none;
+    border-radius: 0px 54.5px 54.5px 54.5px;
+    gap: 8px;
+    color: #FFFFFFFF;
+
+    span {
+        font-size: 18px;
+        line-height: 28px;
+    }
+
+    i {
+        font-size: 24px;
+    }
+    &:hover {
+        color: #FFFFFFFF;
+        background: #983C15FF;
+        cursor: pointer;
+      }
+}

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 //Styles
 import "./styles.scss";
-import { Row, Col, Select } from "antd";
+import { Select, Tooltip } from "antd";
 
 //Icon
 import locationIcon from "../../assets/icons/location-icon.png";
@@ -21,10 +21,10 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer-container">
         <div className="footer-row">
-          <Col span={4}>
+          <div className="footer-col footer-col-3">
             <Logo />
-          </Col>
-          <Col span={2}>
+          </div>
+          <div className="footer-col footer-col-1">
             <div className="footer__wrap">
               <h2>Home</h2>
               <ul>
@@ -39,8 +39,8 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
-          </Col>
-          <Col span={4}>
+          </div>
+          <div className="footer-col footer-col-2">
             <div className="footer__wrap">
               <h2>Get In Touch</h2>
               <ul>
@@ -53,13 +53,15 @@ const Footer = () => {
                   <span>+84234567891</span>
                 </li>
                 <li>
-                  <img src={mailIcon} alt="" />
-                  <span>phongoc@food.com.vn</span>
+                  <Tooltip title="phongoc@food.com.vn">
+                    <img src={mailIcon} alt="" />
+                    <span>phongoc@food.com.vn</span>
+                  </Tooltip>
                 </li>
               </ul>
             </div>
-          </Col>
-          <Col span={4}>
+          </div>
+          <div className="footer-col footer-col-2">
             <div className="footer__wrap">
               <h2>Working hours</h2>
               <ul>
@@ -74,8 +76,8 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
-          </Col>
-          <Col span={8}>
+          </div>
+          <div className="footer-col footer-col-4">
             <div className="footer__wrap">
               <h2>Subcribe to our newsletter</h2>
               <span>For product announcements and exclusive insights</span>
@@ -86,7 +88,7 @@ const Footer = () => {
                 <button>Subcribe</button>
               </div>
             </div>
-          </Col>
+          </div>
         </div>
 
         <div className="footer__foot">
