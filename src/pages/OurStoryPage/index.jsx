@@ -37,7 +37,9 @@ const OurStoryPage = () => {
 
       <div className="our-story-page__main">
         <section className="our-story-page__section">
-          <ImgRounded image={ourStory1} />
+          <div className="our-story-page__section--img">
+            <ImgRounded image={ourStory1} size={"617px"} />
+          </div>
 
           <div className="our-story-page__section--wrap">
             <h1>Back in time</h1>
@@ -54,7 +56,9 @@ const OurStoryPage = () => {
         </section>
 
         <section className="our-story-page__section">
-          <ImgRounded image={ourStory2} />
+          <div className="our-story-page__section--img">
+            <ImgRounded image={ourStory2} size={"617px"} />
+          </div>
 
           <div className="our-story-page__section--wrap">
             <h1>Our Chef</h1>
@@ -84,8 +88,9 @@ const OurStoryPage = () => {
             </p>
             <ButtonRounded>Book your table</ButtonRounded>
           </div>
-
-          <ImgRounded image={ourStory3} />
+          <div className="our-story-page__section--img">
+            <ImgRounded image={ourStory3} size={"617px"} />
+          </div>
         </section>
       </div>
     </div>

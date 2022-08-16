@@ -1,0 +1,54 @@
+@use '../../assets/styles/' as *;
+
+.home-slider {
+  position: relative;
+}
+
+.swiper {
+    width: fit-content;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    overflow: visible;
+  }
+  
+  .swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: fit-content;
+    height: fit-content;
+  }
+  
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+  }
+
+  .swiper-slide-active { 
+    img {
+        transform: scale(125%);
+    }
+  }
+
+  .swiper-3d .swiper-slide-shadow-left, .swiper-3d .swiper-slide-shadow-right {
+    background-image: none;
+  }
+
+  .custom-arrow-slider {
+    i {
+      font-size: 56px;
+      color: $primary-color-red;
+    }
+  }
+
+  .swiper-button-next:after, .swiper-button-prev:after {
+    font-size: 56px;
+    color: $primary-color-red;
+  }
+
+  .swiper-button-prev {
+    left: -100px;
+  }
+
+  .swiper-button-next {
+    right: -100px;
+  }

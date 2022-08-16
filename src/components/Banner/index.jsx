@@ -14,7 +14,7 @@ const Banner = ({ children, where }) => {
 
   const handleScroll = () => {
     console.log(height);
-    window.scrollTo(0, height);
+    window.scrollTo(0, height + 50);
   };
 
   return (

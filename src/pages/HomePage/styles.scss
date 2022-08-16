@@ -1,0 +1,51 @@
+@use '../../assets/styles/' as *;
+
+.home-page {
+
+
+    &__slider {
+        margin: 160px 0 200px;
+        text-align: center;
+
+        &--title {
+            margin-bottom: 20px;    
+            h1 {
+                font-family: $header-font-family;
+                font-size: 56px;
+                line-height: 72px;
+                font-weight: 700;
+                color: $primary-color-yellow;
+                margin-bottom: 0;
+            }
+            span {
+                font-size: 22px;
+                line-height: 30px;
+                color: #D1D6C4FF;
+            }
+        }
+
+        &--subtitle {
+            margin-top: 30px;
+            h2 {
+                font-weight: 700;
+                font-family: $header-font-family;
+                font-size: 44px;
+                line-height: 56px;
+                color: $primary-color-yellow;
+                margin-bottom: 0;
+            }
+            span {
+                font-size: 24px;
+                line-height: 36px;
+                color: #D1D6C4FF;
+            }
+        }
+
+        &--btn {
+            margin-top: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+    }
+}

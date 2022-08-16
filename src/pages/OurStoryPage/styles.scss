@@ -11,10 +11,8 @@
         max-width: 1365px;
         margin: 200px auto;
         gap: 120px;
-        .img-rounded {
+        &--img {
             z-index: 1;
-        }
-        img {
             width: 50%;
         }
 
