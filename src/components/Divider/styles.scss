@@ -23,6 +23,12 @@
         background: #F8E6CAFF;
       }
     }
+    &.green {
+      border-color: $primary-color-green;
+      &::after {
+        background: $primary-color-green;
+      }
+    }
     &-left {
       &:after {
         left: 0;
