@@ -29,6 +29,12 @@
         background: $primary-color-green;
       }
     }
+    &.red {
+      border-color: $primary-color-red;
+      &::after {
+        background: $primary-color-red;
+      }
+    }
     &-left {
       &:after {
         left: 0;

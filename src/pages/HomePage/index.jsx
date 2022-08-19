@@ -4,12 +4,17 @@ import "./styles.scss";
 
 //Image
 import homeMenu1 from "../../assets/img/home/home-menu-1.jpg";
+import homeMenu2 from "../../assets/img/home/home-menu-2.png";
+import homeMenu3 from "../../assets/img/home/home-menu-3.png";
+import homeMenu4 from "../../assets/img/home/home-menu-4.png";
+import homeMenu5 from "../../assets/img/home/home-menu-5.png";
 
 //Components
 import Banner from "../../components/Banner";
 import ButtonRounded from "../../components/ButtonRounded";
 import HomeSlider from "../../components/HomeSlider";
 import Divider from "../../components/Divider";
+import FormContainer from "../../components/FormContainer";
 
 const homeMenuList = [
   {
@@ -20,27 +25,27 @@ const homeMenuList = [
   },
   {
     id: 1,
-    title: "Pho Bo Tai",
-    des: "Beef Noodle Soup with Spicy Broth",
-    img: homeMenu1,
+    title: "Pho Bo Chin",
+    des: "Well-done Beef Noodle Soup with Traditional Broth",
+    img: homeMenu2,
   },
   {
     id: 2,
-    title: "Pho Bo Gan",
-    des: "Beef Noodle Soup with Spicy Broth",
-    img: homeMenu1,
+    title: "Pho Bo Tai Truyen Thong",
+    des: "Rare Beef Noodle Soup with Traditional Broth",
+    img: homeMenu3,
   },
   {
     id: 3,
-    title: "Pho Bo Nam",
-    des: "Beef Noodle Soup with Spicy Broth",
-    img: homeMenu1,
+    title: "Pho Uc Ga",
+    des: "Chicken Breast Noodle Soup with Traditional Broth",
+    img: homeMenu4,
   },
   {
     id: 4,
-    title: "Pho Bo Dac biet",
-    des: "Beef Noodle Soup with Spicy Broth",
-    img: homeMenu1,
+    title: "Pho Ga Thuoc Bac",
+    des: "Chicken Noodle Soup with Stewed Sweet Herbal Broth",
+    img: homeMenu5,
   },
 ];
 
@@ -139,6 +144,52 @@ const HomePage = () => {
           <div className="home-page__menu-main--img">
             <img src={activeImg.img} alt="" />
           </div>
+        </div>
+      </div>
+
+      <div className="home-page__contact">
+        <div className="home-page__contact--col">
+          <h1>Contact</h1>
+          <div className="home-page__contact--in4">
+            <div className="home-page__contact--in4-wrap">
+              <div className="home-page__contact--in4-line">
+                <span>Address: </span>
+                <p>123 TripleN, 14 Ward, District 1, HCM city</p>
+              </div>
+              <div className="home-page__contact--in4-line">
+                <span>Tel: </span>
+                <p>+84234567891</p>
+              </div>
+              <div className="home-page__contact--in4-line">
+                <span>Email: </span>
+                <p>phongoc@food.com.vn</p>
+              </div>
+            </div>
+            <div className="home-page__contact--in4-wrap">
+              <div className="home-page__contact--in4-line">
+                <span>Working hours: </span>
+                <p>Mon - Fri: 9:00 - 21:00</p>
+              </div>
+              <div className="home-page__contact--in4-line">
+                <p>Sat: 8:30 - 20:00</p>
+              </div>
+              <div className="home-page__contact--in4-line">
+                <p>Sun: Closed</p>
+              </div>
+            </div>
+          </div>
+          <div className="home-page__contact--icons">
+            <i className="fa-brands fa-facebook"></i>
+            <i className="fa-brands fa-whatsapp"></i>
+            <i className="fa-brands fa-instagram"></i>
+            <i className="fa-brands fa-youtube"></i>
+          </div>
+        </div>
+
+        <div className="home-page__contact--divider"></div>
+
+        <div className="home-page__contact--col home-page__contact--col-form">
+          <FormContainer />
         </div>
       </div>
     </div>

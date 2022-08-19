@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useEffect, useState } from "react";
 import "./styles.scss";
 
 //Image
@@ -6,6 +6,7 @@ import bannerPho from "../../assets/img/banner-pho.png";
 import ourStory1 from "../../assets/img/story/our-story-1.jpg";
 import ourStory2 from "../../assets/img/story/our-story-2.jpg";
 import ourStory3 from "../../assets/img/story/our-story-3.jpg";
+import map from "../../assets/img/story/map.png";
 
 //Components
 import Banner from "../../components/Banner";
@@ -14,6 +15,24 @@ import ImgRounded from "../../components/ImgRounded";
 import ButtonRounded from "../../components/ButtonRounded";
 
 const OurStoryPage = () => {
+  const [isHistory, setIsHistory] = useState(false);
+  const historyRef = useRef();
+
+  useEffect(() => {
+    const offsetTop = historyRef.current.getBoundingClientRect().top;
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > offsetTop - 280) {
+        setIsHistory(true);
+      } else {
+        setIsHistory(false);
+      }
+    });
+  });
+
+  useEffect(() => {
+    console.log(isHistory);
+  }, [isHistory]);
+
   return (
     <div className="our-story-page">
       <div className="our-story-page__banner">
@@ -52,6 +71,67 @@ const OurStoryPage = () => {
               Excepteur consequat consectetur occaecat culpa adipisicing ex sunt
               id deserunt enim. Ad cillum sit voluptate reprehen
             </p>
+          </div>
+        </section>
+
+        <section
+          className={`our-story-page__map  ${isHistory ? "in-history" : ""}`}
+        >
+          <div className="our-story-page__map-content">
+            <div className="our-story-page__section--wrap">
+              <h1>Our Story</h1>
+              <div
+                className="our-story-page__section--divider"
+                style={{ transform: "translate(0%)" }}
+              >
+                <Divider color="red" direction="left" />
+              </div>
+              <p>
+                Pariatur magna id voluptate irure laboris reprehenderit
+                consequat enim nostrud ut consequat aute consequat deserunt do
+                sunt dolor. Excepteur consequat consectetur occaecat culpa
+                adipisicing ex sunt id deserunt enim. Ad cillum sit voluptate
+                reprehen
+              </p>
+              <ButtonRounded>Book your table</ButtonRounded>
+            </div>
+
+            <div className={`our-story-page__map-history`} ref={historyRef}>
+              <div className="our-story-page__map-history--col">
+                <h1>15</h1>
+                <h1>8</h1>
+                <h1>+20</h1>
+              </div>
+              <div className="our-story-page__map-history--col">
+                <div className="our-story-page__map-history--gr">
+                  <h2>Years of Establishment</h2>
+                  <Divider color="white" direction="right" />
+                  <p>
+                    Pariatur magna id voluptate irure laboris reprehenderit
+                    consequat enim{" "}
+                  </p>
+                </div>
+                <div className="our-story-page__map-history--gr">
+                  <h2>Restaurants</h2>
+                  <Divider color="white" direction="right" />
+                  <p>
+                    Pariatur magna id voluptate irure laboris reprehenderit
+                    consequat enim{" "}
+                  </p>
+                </div>
+                <div className="our-story-page__map-history--gr">
+                  <h2>Professional Chefs</h2>
+                  <Divider color="white" direction="right" />
+                  <p>
+                    Pariatur magna id voluptate irure laboris reprehenderit
+                    consequat enim{" "}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="our-story-page__map-img">
+            <img src={map} alt="" />
           </div>
         </section>
 

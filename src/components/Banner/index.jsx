@@ -8,7 +8,6 @@ const Banner = ({ children, where }) => {
   const bannerRef = useRef();
   const [height, setHeight] = useState(0);
   useEffect(() => {
-    console.log(bannerRef.current.clientHeight);
     setHeight(bannerRef.current.clientHeight);
   }, []);
 
