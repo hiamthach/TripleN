@@ -1,44 +1,44 @@
-@use '../assets/styles/' as *;
+@use "../assets/styles/" as *;
 
 .layout {
+  width: 100%;
+  position: relative;
+  background-color: $primary-color-green;
+  overflow: auto;
+
+  &-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
     width: 100%;
+  }
+  &-container {
+    max-width: 1920px;
+    margin: auto;
     position: relative;
-    background-color: $primary-color-green;
-    overflow: auto;
+  }
 
-
-    &-header {
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 100;
-        width: 100%;
+  &-scroll-top {
+    position: fixed;
+    bottom: 60px;
+    right: 60px;
+    z-index: 100;
+    &__none {
+      display: none;
     }
-    &-container {
-        max-width: 1920px;
-        margin: auto;
-        position: relative;
-    }
-
-    &-scroll-top {
-        position: fixed;
-        bottom: 60px;
-        right: 60px;
-        &__none {
-            display: none;
-        }
-    }
+  }
 }
 
 @media (max-width: 816px) {
-    .layout {
-        &-scroll-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            &__none {
-                display: none;
-            }
-        }
+  .layout {
+    &-scroll-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      &__none {
+        display: none;
+      }
     }
+  }
 }

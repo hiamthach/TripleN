@@ -7,6 +7,8 @@ import ourStory1 from "../../assets/img/story/our-story-1.jpg";
 import ourStory2 from "../../assets/img/story/our-story-2.jpg";
 import ourStory3 from "../../assets/img/story/our-story-3.jpg";
 import map from "../../assets/img/story/map.png";
+import pattern1 from "../../assets/img/story/pattern-1.png";
+import pattern2 from "../../assets/img/story/pattern-2.png";
 
 //Components
 import Banner from "../../components/Banner";
@@ -16,22 +18,33 @@ import ButtonRounded from "../../components/ButtonRounded";
 
 const OurStoryPage = () => {
   const [isHistory, setIsHistory] = useState(false);
+  const [historyOffset, setHistoryOffset] = useState(0);
+  const [chefOffset, setChefOffset] = useState(0);
   const historyRef = useRef();
+  const chefRef = useRef();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     const offsetTop = historyRef.current.getBoundingClientRect().top;
     window.addEventListener("scroll", () => {
-      if (window.scrollY > offsetTop - 280) {
+      if (window.scrollY > offsetTop - 240) {
         setIsHistory(true);
       } else {
         setIsHistory(false);
       }
     });
-  });
+  }, []);
 
   useEffect(() => {
-    console.log(isHistory);
-  }, [isHistory]);
+    setHistoryOffset(historyRef.current.getBoundingClientRect().top);
+  }, [historyRef]);
+
+  useEffect(() => {
+    setChefOffset(chefRef.current.getBoundingClientRect().top);
+  }, [chefRef]);
 
   return (
     <div className="our-story-page">
@@ -53,7 +66,24 @@ const OurStoryPage = () => {
           </div>
         </Banner>
       </div>
-
+      <div
+        className="our-story-page--pattern our-story-page--pattern-1"
+        style={{
+          top: historyOffset * 0.5,
+          left: 0,
+        }}
+      >
+        <img src={pattern1} alt="" />
+      </div>
+      <div
+        className="our-story-page--pattern our-story-page--pattern-1"
+        style={{
+          top: chefOffset * 0.92,
+          left: 0,
+        }}
+      >
+        <img src={pattern2} alt="" />
+      </div>
       <div className="our-story-page__main">
         <section className="our-story-page__section">
           <div className="our-story-page__section--img">
@@ -73,13 +103,12 @@ const OurStoryPage = () => {
             </p>
           </div>
         </section>
-
         <section
           className={`our-story-page__map  ${isHistory ? "in-history" : ""}`}
         >
           <div className="our-story-page__map-content">
             <div className="our-story-page__section--wrap">
-              <h1>Our Story</h1>
+              <h1 style={{ color: "#525a3e" }}>Our Story</h1>
               <div
                 className="our-story-page__section--divider"
                 style={{ transform: "translate(0%)" }}
@@ -140,12 +169,12 @@ const OurStoryPage = () => {
             <ImgRounded image={ourStory2} size={"617px"} />
           </div>
 
-          <div className="our-story-page__section--wrap">
-            <h1>Our Chef</h1>
+          <div className="our-story-page__section--wrap" ref={chefRef}>
+            <h1 style={{ color: "#525a3e" }}>Our Chef</h1>
             <div className="our-story-page__section--divider">
-              <Divider color="white" />
+              <Divider color="green" />
             </div>
-            <p>
+            <p style={{ color: "#171A1FFF" }}>
               Pariatur magna id voluptate irure laboris reprehenderit consequat
               enim nostrud ut consequat aute consequat deserunt do sunt dolor.
               Excepteur consequat consectetur occaecat culpa adipisicing ex sunt

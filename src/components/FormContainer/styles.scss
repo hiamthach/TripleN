@@ -60,9 +60,7 @@
                     border: 1px solid $primary-color-red;
                 }
             }
-            .ant-select-single.ant-select-show-arrow .ant-select-selection-item {
-                line-height: 42px;
-            }
+            
         }
         
         &__icon {
@@ -96,6 +94,9 @@
             cursor: pointer;
             box-shadow: 0 0 0 2px rgb(170 67 23 / 20%);
         }
+    }
+    .ant-select-single.ant-select-show-arrow .ant-select-selection-item {
+        line-height: 38px;
     }
 }
 

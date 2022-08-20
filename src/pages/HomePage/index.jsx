@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import "./styles.scss";
 
@@ -66,6 +66,10 @@ const MenuImg = ({ id, img, active, setActive }) => {
 const HomePage = () => {
   const [activeImg, setActiveImg] = useState(homeMenuList[0]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="home-page">
       <div className="home-page__banner">
@@ -131,8 +135,7 @@ const HomePage = () => {
             <p>
               Labore adipisicing eu laborum in in ex exercitation duis nulla
               aliqua aliquip esse ad anim est dolor culpa et nostrud. Duis
-              fugiat voluptate dolor ea tempor qui magna labore excepteur
-              laboris consequat.
+              fugiat voluptate.
             </p>
             <div className="home-page__menu-main--btn">
               <ButtonRounded>
