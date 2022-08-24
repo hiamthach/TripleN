@@ -15,6 +15,7 @@ import Banner from "../../components/Banner";
 import Divider from "../../components/Divider";
 import ImgRounded from "../../components/ImgRounded";
 import ButtonRounded from "../../components/ButtonRounded";
+import BookModal from "../../components/BookModal";
 
 const OurStoryPage = () => {
   const historyRef = useRef();
@@ -24,6 +25,7 @@ const OurStoryPage = () => {
     historyRef.current?.offsetTop || 0
   );
   const [chefOffset, setChefOffset] = useState(chefRef.current?.offsetTop || 0);
+  const [modalVisible, setModalVisible] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -38,6 +40,10 @@ const OurStoryPage = () => {
       }
     });
   }, []);
+
+  const openModal = () => {
+    setModalVisible(true);
+  };
 
   return (
     <div className="our-story-page">
@@ -115,7 +121,9 @@ const OurStoryPage = () => {
                 adipisicing ex sunt id deserunt enim. Ad cillum sit voluptate
                 reprehen
               </p>
-              <ButtonRounded>Book your table</ButtonRounded>
+              <div className="our-story-page__book-btn" onClick={openModal}>
+                <ButtonRounded>Book your table</ButtonRounded>
+              </div>
             </div>
 
             <div className={`our-story-page__map-history`} ref={historyRef}>
@@ -188,13 +196,16 @@ const OurStoryPage = () => {
               Excepteur consequat consectetur occaecat culpa adipisicing ex sunt
               id deserunt enim. Ad cillum sit voluptate reprehen
             </p>
-            <ButtonRounded>Book your table</ButtonRounded>
+            <div className="our-story-page__book-btn" onClick={openModal}>
+              <ButtonRounded>Book your table</ButtonRounded>
+            </div>
           </div>
           <div className="our-story-page__section--img">
             <ImgRounded image={ourStory3} size={"617px"} />
           </div>
         </section>
       </div>
+      <BookModal isVisible={modalVisible} setVisible={setModalVisible} />
     </div>
   );
 };

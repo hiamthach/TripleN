@@ -19,6 +19,7 @@ import pattern2 from "../../assets/img/menu/pattern-2.png";
 import FormContainer from "../../components/FormContainer";
 import Divider from "../../components/Divider";
 import ButtonRounded from "../../components/ButtonRounded";
+import BookModal from "../../components/BookModal";
 
 const menuListLeft = [
   {
@@ -83,7 +84,11 @@ const MenuPage = () => {
   const [menuRightOffset, setMenuRightOffset] = useState(
     rightMenuRef.current?.offsetTop || 0
   );
+  const [modalVisible, setModalVisible] = useState(false);
 
+  const openModal = () => {
+    setModalVisible(true);
+  };
   useEffect(() => {
     window.scrollTo(0, 0);
     setMenuRightOffset(rightMenuRef.current.offsetTop);
@@ -213,7 +218,9 @@ const MenuPage = () => {
           >
             <i className="fa-solid fa-chevron-left"></i>
           </div>
-          <ButtonRounded>Book your table</ButtonRounded>
+          <div className="menu-page__book-btn" onClick={openModal}>
+            <ButtonRounded>Book your table</ButtonRounded>
+          </div>
         </div>
       </section>
       <section
@@ -265,12 +272,15 @@ const MenuPage = () => {
           >
             <i className="fa-solid fa-chevron-left"></i>
           </div>
-          <ButtonRounded>Book your table</ButtonRounded>
+          <div className="menu-page__book-btn" onClick={openModal}>
+            <ButtonRounded>Book your table</ButtonRounded>
+          </div>
         </div>
       </section>
       <div className="menu-page__form">
         <FormContainer />
       </div>
+      <BookModal isVisible={modalVisible} setVisible={setModalVisible} />
     </div>
   );
 };

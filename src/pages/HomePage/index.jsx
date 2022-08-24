@@ -113,7 +113,7 @@ const HomePage = () => {
             reprehenderi
           </span>
         </div>
-        <div className="home-page__slider--btn">
+        <div className="home-page__slider--btn" onClick={openModal}>
           <ButtonRounded>Book your table</ButtonRounded>
         </div>
       </div>
