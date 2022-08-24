@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 import "./styles.scss";
+
+import { useLocation } from "react-router-dom";
 
 //Image
 import homeMenu1 from "../../assets/img/home/home-menu-1.jpg";
@@ -15,6 +17,7 @@ import ButtonRounded from "../../components/ButtonRounded";
 import HomeSlider from "../../components/HomeSlider";
 import Divider from "../../components/Divider";
 import FormContainer from "../../components/FormContainer";
+import BookModal from "../../components/BookModal";
 
 const homeMenuList = [
   {
@@ -50,7 +53,6 @@ const homeMenuList = [
 ];
 
 const MenuImg = ({ id, img, active, setActive }) => {
-  console.log(active);
   return (
     <div
       className={`home-page__menu--img-item ${active ? "active" : ""} }`}
@@ -65,19 +67,33 @@ const MenuImg = ({ id, img, active, setActive }) => {
 
 const HomePage = () => {
   const [activeImg, setActiveImg] = useState(homeMenuList[0]);
+  const [modalVisible, setModalVisible] = useState(false);
+  const contactRef = useRef();
+
+  const { pathname } = useLocation();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+    if (pathname === "/contacts") {
+      contactRef.current?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [pathname]);
+
+  const openModal = () => {
+    setModalVisible(true);
+  };
 
   return (
     <div className="home-page">
       <div className="home-page__banner">
         <Banner where="home">
           <h1 className="banner__title">Hometown Flavour</h1>
-          <ButtonRounded>
-            <span>BOOK NOW</span> <i className="fa-solid fa-angle-right"></i>
-          </ButtonRounded>
+          <div className="home-page__banner--btn" onClick={openModal}>
+            <ButtonRounded>
+              <span>BOOK NOW</span> <i className="fa-solid fa-angle-right"></i>
+            </ButtonRounded>
+          </div>
         </Banner>
       </div>
 
@@ -150,7 +166,7 @@ const HomePage = () => {
         </div>
       </div>
 
-      <div className="home-page__contact">
+      <div className="home-page__contact" ref={contactRef}>
         <div className="home-page__contact--col">
           <h1>Contact</h1>
           <div className="home-page__contact--in4">
@@ -195,6 +211,8 @@ const HomePage = () => {
           <FormContainer />
         </div>
       </div>
+
+      <BookModal isVisible={modalVisible} setVisible={setModalVisible} />
     </div>
   );
 };

@@ -21,7 +21,7 @@ function App() {
             <Route path="" element={<HomePage />} />
             <Route path="menu" element={<MenuPage />} />
             <Route path="our-story" element={<OurStoryPage />} />
-            <Route path="contacts" element={<ContactsPage />} />
+            <Route path="contacts" element={<HomePage />} />
           </Route>
 
           <Route path="*" element={<NotFoundPage />} />

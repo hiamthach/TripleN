@@ -1,0 +1,31 @@
+@use "../../assets/styles/" as *;
+
+.book-modal {
+  .ant-modal-body {
+    width: fit-content;
+    padding: 0;
+  }
+}
+
+.ant-modal {
+  width: fit-content;
+  transform-origin: 0;
+}
+
+.ant-modal-content {
+  width: fit-content;
+  background-color: transparent;
+  padding: 0;
+  max-width: max-content;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.ant-modal-close-x {
+  display: none;
+}
+
+.ant-modal-footer {
+  display: none;
+}

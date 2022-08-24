@@ -17,9 +17,10 @@ const Header = () => {
   const location = useLocation();
 
   const onChange = (key) => {
-    console.log(location.pathname);
     if (key === "home") {
       navigate("/");
+    } else if (key === "contacts") {
+      navigate("/contacts");
     } else {
       navigate(`${key}`);
     }

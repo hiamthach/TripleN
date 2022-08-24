@@ -75,21 +75,19 @@ const menuListRight = [
 ];
 
 const MenuPage = () => {
+  const rightMenuRef = useRef();
   const [circleLeftClass, setCircleLeftClass] = useState("rotate--1");
   const [circleRightClass, setCircleRightClass] = useState("rotate--1");
   const [activeLeftId, setActiveLeftId] = useState(1);
   const [activeRightId, setActiveRightId] = useState(1);
-  const [menuRightOffset, setMenuRightOffset] = useState(0);
-
-  const rightMenuRef = useRef();
+  const [menuRightOffset, setMenuRightOffset] = useState(
+    rightMenuRef.current?.offsetTop || 0
+  );
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    setMenuRightOffset(rightMenuRef.current.offsetTop);
   }, []);
-
-  useEffect(() => {
-    setMenuRightOffset(rightMenuRef.current.getBoundingClientRect().top);
-  }, [rightMenuRef]);
 
   const handleLeftNext = () => {
     if (activeLeftId < 4) {

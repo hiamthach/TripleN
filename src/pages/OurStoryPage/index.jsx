@@ -17,34 +17,27 @@ import ImgRounded from "../../components/ImgRounded";
 import ButtonRounded from "../../components/ButtonRounded";
 
 const OurStoryPage = () => {
-  const [isHistory, setIsHistory] = useState(false);
-  const [historyOffset, setHistoryOffset] = useState(0);
-  const [chefOffset, setChefOffset] = useState(0);
   const historyRef = useRef();
   const chefRef = useRef();
+  const [isHistory, setIsHistory] = useState(false);
+  const [historyOffset, setHistoryOffset] = useState(
+    historyRef.current?.offsetTop || 0
+  );
+  const [chefOffset, setChefOffset] = useState(chefRef.current?.offsetTop || 0);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
-
-  useEffect(() => {
-    const offsetTop = historyRef.current.getBoundingClientRect().top;
+    setHistoryOffset(historyRef.current.offsetTop);
+    setChefOffset(chefRef.current.offsetTop);
+    const offsetTop = historyRef.current.offsetTop;
     window.addEventListener("scroll", () => {
-      if (window.scrollY > offsetTop - 240) {
+      if (window.scrollY > offsetTop * 3) {
         setIsHistory(true);
       } else {
         setIsHistory(false);
       }
     });
   }, []);
-
-  useEffect(() => {
-    setHistoryOffset(historyRef.current.getBoundingClientRect().top);
-  }, [historyRef]);
-
-  useEffect(() => {
-    setChefOffset(chefRef.current.getBoundingClientRect().top);
-  }, [chefRef]);
 
   return (
     <div className="our-story-page">
@@ -69,7 +62,7 @@ const OurStoryPage = () => {
       <div
         className="our-story-page--pattern our-story-page--pattern-1"
         style={{
-          top: historyOffset * 0.5,
+          top: historyOffset * 2,
           left: 0,
         }}
       >
