@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 
 import "./styles.scss";
 
-import { useLocation, Link } from "react-router-dom";
+import { useLocation, Link, useNavigate } from "react-router-dom";
 
 //Image
 import homeMenu1 from "../../assets/img/home/home-menu-1.jpg";
@@ -72,6 +72,7 @@ const HomePage = () => {
   const contactRef = useRef();
 
   const { pathname } = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (pathname === "/contacts") {
@@ -194,7 +195,12 @@ const HomePage = () => {
               aliqua aliquip esse ad anim est dolor culpa et nostrud. Duis
               fugiat voluptate.
             </p>
-            <div className="home-page__menu-main--btn">
+            <div
+              className="home-page__menu-main--btn"
+              onClick={() => {
+                navigate("/menu");
+              }}
+            >
               <ButtonRounded>
                 More<i className="fa-solid fa-angle-right"></i>
               </ButtonRounded>

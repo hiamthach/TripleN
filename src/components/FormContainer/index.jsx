@@ -14,10 +14,15 @@ const DateInput = () => {
   );
 };
 
-const SelectDayNight = () => {
+const SelectDayNight = ({ value, setValue }) => {
   return (
     <div className="input-wrap__day-night">
-      <Select className="input-wrap__select" defaultValue="morning" autoFocus>
+      <Select
+        className="input-wrap__select"
+        defaultValue="morning"
+        autoFocus
+        onChange={(value) => setValue(value)}
+      >
         <Option value="morning">Morning</Option>
         <Option value="noon">Noon</Option>
         <Option value="afternoon">Afternoon</Option>
@@ -74,15 +79,32 @@ const Tag = ({ active, content }) => {
   );
 };
 
+const listMorning = ["09 : 00", "10 : 00", "11 : 00"];
+const listNoon = ["12 : 00", "13 : 00", "14 : 00"];
+const listAfternoon = ["15 : 00", "16 : 00", "17 : 00"];
+const listEvening = ["18 : 00", "19 : 00", "20 : 00"];
+
+const setListTag = (value) => {
+  switch (value) {
+    case "morning":
+      return listMorning;
+    case "noon":
+      return listNoon;
+    case "afternoon":
+      return listAfternoon;
+    case "evening":
+      return listEvening;
+  }
+};
+
 const FormContainer = ({ isBook, setVisible }) => {
   const [modalVisible, setModalVisible] = useState(false);
   const [step, setStep] = useState(1);
+  const [daynight, setDayNight] = useState("morning");
 
   const handleFindTable = () => {
     setStep(2);
   };
-
-  const listMorning = ["09 : 00", "10 : 00", "11 : 00", "12 : 00"];
 
   const openModal = () => {
     setModalVisible(true);
@@ -111,7 +133,7 @@ const FormContainer = ({ isBook, setVisible }) => {
               </div>
               <div className="form-container__book--row">
                 <div className="form-container__book--col-7">
-                  <SelectDayNight />
+                  <SelectDayNight value={daynight} setValue={setDayNight} />
                 </div>
                 <div
                   className="form-container__book--col-3"
@@ -121,7 +143,7 @@ const FormContainer = ({ isBook, setVisible }) => {
                 </div>
               </div>
               <div className="form-container__book--tag-list">
-                {listMorning.map((item) => (
+                {setListTag(daynight).map((item) => (
                   <Tag content={item} />
                 ))}
               </div>

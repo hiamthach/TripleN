@@ -16,6 +16,7 @@
   position: relative;
   width: 100%;
   overflow-x: hidden;
+  overflow-y: hidden;
   &__pattern {
     position: absolute;
     width: 100%;
@@ -350,12 +351,15 @@
         &-in4 {
           h1 {
             font-size: 56px;
+            margin-left: 60px;
           }
           h4 {
             font-size: 20px;
+            margin-left: 60px;
           }
           p {
             font-size: 18px;
+            margin-left: 60px;
           }
         }
       }
