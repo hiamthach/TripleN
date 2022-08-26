@@ -6,6 +6,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 //Components
 import Logo from "../Logo";
 import CusSwitch from "../CusSwitch";
+import CusDrawer from "../CusDrawer";
 
 // antd
 import { Tabs } from "antd";
@@ -15,6 +16,7 @@ const { TabPane } = Tabs;
 const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const [headerVisible, setHeaderVisible] = useState(false);
 
   const onChange = (key) => {
     if (key === "home") {
@@ -45,9 +47,18 @@ const Header = () => {
           <TabPane tab="Contacts" key="contacts"></TabPane>
         </Tabs>
       </div>
+      <div
+        className="header-bar"
+        onClick={() => {
+          setHeaderVisible(true);
+        }}
+      >
+        <i className="fa-solid fa-bars"></i>
+      </div>
       <div className="header-switch">
         <CusSwitch />
       </div>
+      <CusDrawer visible={headerVisible} setVisible={setHeaderVisible} />
     </header>
   );
 };

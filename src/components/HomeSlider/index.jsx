@@ -38,13 +38,13 @@ const HomeSlider = () => {
         className="mySwiper"
       >
         <SwiperSlide>
-          <ImgRounded image={homeSlider1} size={"360px"} />
+          <ImgRounded image={homeSlider1} />
         </SwiperSlide>
         <SwiperSlide>
-          <ImgRounded image={homeSlider2} size={"360px"} />
+          <ImgRounded image={homeSlider2} />
         </SwiperSlide>
         <SwiperSlide>
-          <ImgRounded image={homeSlider3} size={"360px"} />
+          <ImgRounded image={homeSlider3} />
         </SwiperSlide>
       </Swiper>
     </div>

@@ -141,7 +141,12 @@ const MenuPage = () => {
       </div>
       <div
         className="menu-page__pattern--2"
-        style={{ top: menuRightOffset * 2 }}
+        style={{
+          top:
+            window.innerWidth > 1300
+              ? menuRightOffset * 2 - 100
+              : menuRightOffset * 1.7,
+        }}
       >
         <img src={pattern2} alt="" />
       </div>
@@ -177,6 +182,9 @@ const MenuPage = () => {
         </div>
       </div>
       <section className="menu-page__round-slider menu-page__round-slider--1 ">
+        <div className="menu-page__round-slider--bg">
+          <img src={menuListLeft[activeLeftId - 1].img} alt="" />
+        </div>
         <div className={`circle-gr ${circleLeftClass}`}>
           {menuListLeft.map((item) => (
             <div
@@ -210,7 +218,7 @@ const MenuPage = () => {
             className="menu-page__round-slider--content-btn menu-page__round-slider--content-next"
             onClick={handleLeftNext}
           >
-            <i className="fa-solid fa-angle-right"></i>
+            <i className="fa-solid fa-chevron-right"></i>
           </div>
           <div
             className="menu-page__round-slider--content-btn menu-page__round-slider--content-prev"
@@ -264,10 +272,48 @@ const MenuPage = () => {
             className="menu-page__round-slider--content-btn menu-page__round-slider--content-next"
             onClick={handleRightNext}
           >
-            <i className="fa-solid fa-angle-right"></i>
+            <i className="fa-solid fa-chevron-right"></i>
           </div>
           <div
             className="menu-page__round-slider--content-btn menu-page__round-slider--content-prev"
+            onClick={handleRightPrev}
+          >
+            <i className="fa-solid fa-chevron-left"></i>
+          </div>
+          <div className="menu-page__book-btn" onClick={openModal}>
+            <ButtonRounded>Book your table</ButtonRounded>
+          </div>
+        </div>
+      </section>
+      <section className="menu-page__slider--mobile">
+        <div className="menu-page__slider--mobile-img">
+          <img src={menuListRight[activeRightId - 1].img} alt="" />
+        </div>
+        <div className="menu-page__slider--mobile--content">
+          <h1 style={{ color: "#525A3EFF" }}>
+            {menuListRight[activeRightId - 1].title}
+          </h1>
+          <h3 style={{ color: "#525A3EFF" }}>
+            {menuListRight[activeRightId - 1].des}
+          </h3>
+          <div className="menu-page__slider--mobile--divider">
+            <Divider color="green" direction="right" />
+          </div>
+          <p style={{ color: "#525A3EFF" }}>
+            Pariatur magna id voluptate irure laboris reprehenderit consequat
+            enim nostrud ut consequat aute consequat deserunt do sunt dolor.
+            Excepteur consequat consectetur occaecat culpa adipisicing ex sunt
+            id deserunt enim. Ad cillum sit voluptate reprehen
+          </p>
+
+          <div
+            className="menu-page__slider--mobile--content-btn menu-page__slider--mobile--content-next"
+            onClick={handleRightNext}
+          >
+            <i className="fa-solid fa-chevron-right"></i>
+          </div>
+          <div
+            className="menu-page__slider--mobile--content-btn menu-page__slider--mobile--content-prev"
             onClick={handleRightPrev}
           >
             <i className="fa-solid fa-chevron-left"></i>

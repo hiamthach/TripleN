@@ -20,16 +20,23 @@ import BookModal from "../../components/BookModal";
 const OurStoryPage = () => {
   const historyRef = useRef();
   const chefRef = useRef();
+  const timeRef = useRef();
   const [isHistory, setIsHistory] = useState(false);
-  const [historyOffset, setHistoryOffset] = useState(
-    historyRef.current?.offsetTop || 0
-  );
   const [chefOffset, setChefOffset] = useState(chefRef.current?.offsetTop || 0);
+  const [chefHeight, setChefHeight] = useState(
+    chefRef.current?.offsetHeight || 0
+  );
+  const [timeOffset, setTimeOffset] = useState(timeRef.current?.offsetTop || 0);
+  const [timeHeight, setTimeHeight] = useState(
+    timeRef.current?.offsetHeight || 0
+  );
   const [modalVisible, setModalVisible] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    setHistoryOffset(historyRef.current.offsetTop);
+    setTimeOffset(timeRef.current.offsetTop);
+    setTimeHeight(timeRef.current.offsetHeight);
+    setChefHeight(chefRef.current.offsetHeight);
     setChefOffset(chefRef.current.offsetTop);
     const offsetTop = historyRef.current.offsetTop;
     window.addEventListener("scroll", () => {
@@ -68,25 +75,25 @@ const OurStoryPage = () => {
       <div
         className="our-story-page--pattern our-story-page--pattern-1"
         style={{
-          top: historyOffset * 2,
+          top: timeOffset + timeHeight * 0.5,
           left: 0,
         }}
       >
         <img src={pattern1} alt="" />
       </div>
       <div
-        className="our-story-page--pattern our-story-page--pattern-1"
+        className="our-story-page--pattern our-story-page--pattern-2"
         style={{
-          top: chefOffset * 0.92,
+          top: chefOffset - chefHeight * 0.5,
           left: 0,
         }}
       >
         <img src={pattern2} alt="" />
       </div>
       <div className="our-story-page__main">
-        <section className="our-story-page__section">
+        <section className="our-story-page__section" ref={timeRef}>
           <div className="our-story-page__section--img">
-            <ImgRounded image={ourStory1} size={"617px"} />
+            <ImgRounded image={ourStory1} />
           </div>
 
           <div className="our-story-page__section--wrap">
@@ -114,7 +121,7 @@ const OurStoryPage = () => {
               >
                 <Divider color="red" direction="left" />
               </div>
-              <p>
+              <p style={{ color: "#525a3e" }}>
                 Pariatur magna id voluptate irure laboris reprehenderit
                 consequat enim nostrud ut consequat aute consequat deserunt do
                 sunt dolor. Excepteur consequat consectetur occaecat culpa
@@ -165,12 +172,15 @@ const OurStoryPage = () => {
           </div>
         </section>
 
-        <section className="our-story-page__section">
+        <section
+          className="our-story-page__section our-story-page__section--chef"
+          ref={chefRef}
+        >
           <div className="our-story-page__section--img">
-            <ImgRounded image={ourStory2} size={"617px"} />
+            <ImgRounded image={ourStory2} />
           </div>
 
-          <div className="our-story-page__section--wrap" ref={chefRef}>
+          <div className="our-story-page__section--wrap">
             <h1 style={{ color: "#525a3e" }}>Our Chef</h1>
             <div className="our-story-page__section--divider">
               <Divider color="green" />
@@ -201,7 +211,7 @@ const OurStoryPage = () => {
             </div>
           </div>
           <div className="our-story-page__section--img">
-            <ImgRounded image={ourStory3} size={"617px"} />
+            <ImgRounded image={ourStory3} />
           </div>
         </section>
       </div>

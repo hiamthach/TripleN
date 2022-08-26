@@ -4,7 +4,6 @@
   width: 100%;
   position: relative;
   background-color: $primary-color-green;
-  overflow: auto;
 
   &-header {
     position: fixed;
@@ -39,6 +38,9 @@
       &__none {
         display: none;
       }
+    }
+    &-container {
+      transform: translateY(-20px);
     }
   }
 }

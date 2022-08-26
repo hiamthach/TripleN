@@ -1,0 +1,27 @@
+@use "../../assets/styles/" as *;
+
+.header-drawer {
+  &__link {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin: 48px 0;
+
+    a {
+      font-size: 24px;
+      &:hover {
+        color: $primary-color-red;
+      }
+    }
+  }
+}
+
+.ant-drawer-content {
+  background-color: $primary-color-yellow;
+  padding: 12px;
+  max-width: 90vw;
+}
+
+.ant-drawer-header {
+  display: none;
+}

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 
 import "./styles.scss";
 
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 
 //Image
 import homeMenu1 from "../../assets/img/home/home-menu-1.jpg";
@@ -68,6 +68,7 @@ const MenuImg = ({ id, img, active, setActive }) => {
 const HomePage = () => {
   const [activeImg, setActiveImg] = useState(homeMenuList[0]);
   const [modalVisible, setModalVisible] = useState(false);
+  const [activeId, setActiveId] = useState(activeImg.id);
   const contactRef = useRef();
 
   const { pathname } = useLocation();
@@ -82,6 +83,26 @@ const HomePage = () => {
 
   const openModal = () => {
     setModalVisible(true);
+  };
+
+  const handleNext = () => {
+    if (activeId < 5) {
+      setActiveId(activeId + 1);
+      setActiveImg(homeMenuList[activeId]);
+    } else {
+      setActiveId(1);
+      setActiveImg(homeMenuList[0]);
+    }
+  };
+
+  const handlePrev = () => {
+    if (activeId > 1) {
+      setActiveId(activeId - 1);
+      setActiveImg(homeMenuList[activeId - 2]);
+    } else {
+      setActiveId(5);
+      setActiveImg(homeMenuList[4]);
+    }
   };
 
   return (
@@ -126,6 +147,11 @@ const HomePage = () => {
           irure eu duis nisi esse excepteur dolor. Ad nisi quis duis duis
           officia eu. Velit sint officia ipsum ipsum amet mollit id id dolore.
         </p>
+        <Link to="/our-story">
+          <ButtonRounded>
+            Discover <i className="fa-solid fa-angle-right"></i>
+          </ButtonRounded>
+        </Link>
       </div>
 
       <div className="home-page__menu">
@@ -144,6 +170,21 @@ const HomePage = () => {
         </div>
 
         <div className="home-page__menu-main">
+          <div className="home-page__menu-main--active">
+            <div
+              className="home-page__menu-main--active-btn home-page__menu-main--active-btn--next"
+              onClick={handleNext}
+            >
+              <i class="fa-solid fa-chevron-right"></i>
+            </div>
+            <div
+              className="home-page__menu-main--active-btn home-page__menu-main--active-btn--prev"
+              onClick={handlePrev}
+            >
+              <i class="fa-solid fa-chevron-left"></i>
+            </div>
+            <img src={activeImg.img} alt="" className="" />
+          </div>
           <div className="home-page__menu-main--card">
             <h1>{activeImg.title}</h1>
             <h3>{activeImg.des}</h3>
