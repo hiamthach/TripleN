@@ -18,7 +18,10 @@ import "swiper/css/navigation";
 
 import "./styles.scss";
 
+const listText = ["Southern Vietnam", "Northern Vietnam", "Central Vietnam"];
+
 const HomeSlider = () => {
+  const [activeIndex, setActiveIndex] = useState(1);
   return (
     <div className="home-slider">
       <Swiper
@@ -32,10 +35,13 @@ const HomeSlider = () => {
           modifier: 1,
           slideShadows: true,
         }}
-        initialSlide="1"
+        initialSlide={activeIndex}
         navigation={true}
         modules={[EffectCoverflow, Navigation]}
         className="mySwiper"
+        onSlideChange={(value) => {
+          setActiveIndex(value.activeIndex);
+        }}
       >
         <SwiperSlide>
           <ImgRounded image={homeSlider1} />
@@ -47,6 +53,13 @@ const HomeSlider = () => {
           <ImgRounded image={homeSlider3} />
         </SwiperSlide>
       </Swiper>
+      <div className="home-page__slider--subtitle">
+        <h2>{listText[activeIndex]}</h2>
+        <span>
+          Eiusmod tempor elit esse velit non minim in ut reprehenderit
+          reprehenderi
+        </span>
+      </div>
     </div>
   );
 };

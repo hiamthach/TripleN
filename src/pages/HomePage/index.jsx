@@ -128,13 +128,6 @@ const HomePage = () => {
           </span>
         </div>
         <HomeSlider />
-        <div className="home-page__slider--subtitle">
-          <h2>Northern Vietnam</h2>
-          <span>
-            Eiusmod tempor elit esse velit non minim in ut reprehenderit
-            reprehenderi
-          </span>
-        </div>
         <div className="home-page__slider--btn" onClick={openModal}>
           <ButtonRounded>Book your table</ButtonRounded>
         </div>
