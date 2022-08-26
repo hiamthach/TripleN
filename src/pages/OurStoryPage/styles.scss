@@ -393,3 +393,51 @@
     }
   }
 }
+
+@media (max-width: 500px) {
+  .our-story-page {
+    &__map {
+      &-history {
+        margin-top: 0;
+        &--col {
+          h1 {
+            font-size: 40px;
+            line-height: 60px;
+            margin-bottom: 36px;
+          }
+          &:first-child {
+            text-align: right;
+          }
+        }
+        &--gr {
+          margin-bottom: 20px;
+          h2 {
+            font-size: 24px;
+            line-height: 32px;
+            color: #ffffffff;
+            font-family: $header-font-family;
+            font-weight: 700;
+          }
+
+          p {
+            font-size: 14px;
+            line-height: 18px;
+            color: #d1d6c4ff;
+          }
+        }
+      }
+    }
+    &.in-history {
+      .our-story-page__map {
+        &-content {
+          width: 63%;
+          margin-right: 60px;
+        }
+
+        &-img {
+          display: none;
+        }
+      }
+    }
+  }
+}

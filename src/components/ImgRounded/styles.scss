@@ -32,3 +32,10 @@
     height: 360px;
   }
 }
+
+@media (max-width: 500px) {
+  .img-rounded {
+    width: 240px;
+    height: 240px;
+  }
+}
