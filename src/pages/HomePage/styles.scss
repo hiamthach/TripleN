@@ -680,3 +680,30 @@
     }
   }
 }
+
+@media (max-width: 500px) {
+  .home-page {
+    &__slider {
+      &--title {
+        margin-bottom: 12px;
+        h1 {
+          font-size: 32px;
+        }
+        span {
+          font-size: 14px;
+          line-height: 1.2;
+        }
+      }
+      &--subtitle {
+        margin-top: 12px;
+        h2 {
+          font-size: 24px;
+        }
+        span {
+          font-size: 14px;
+          line-height: 1.2;
+        }
+      }
+    }
+  }
+}

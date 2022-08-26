@@ -590,6 +590,9 @@
         }
       }
     }
+    &__form {
+      margin: 160px auto;
+    }
   }
 }
 
@@ -635,6 +638,7 @@
     }
     &__form {
       width: 90%;
+      margin: 60px auto;
     }
     &__round-slider {
       display: flex;

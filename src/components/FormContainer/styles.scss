@@ -227,6 +227,7 @@
       width: 100%;
       gap: 20px;
       margin-top: 24px;
+      flex-wrap: wrap;
     }
 
     &--note {
@@ -282,6 +283,7 @@
     }
   }
   &__tag {
+    width: 90px;
     height: 44px;
     padding: 0 20px;
     display: flex;

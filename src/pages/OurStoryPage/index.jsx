@@ -194,7 +194,7 @@ const OurStoryPage = () => {
           </div>
         </section>
 
-        <section className="our-story-page__section">
+        <section className="our-story-page__section our-story-page__section--ingre">
           <div className="our-story-page__section--wrap">
             <h1>Ingredients</h1>
             <div className="our-story-page__section--divider our-story-page__section--divider__left">
